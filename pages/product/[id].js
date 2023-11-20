@@ -18,12 +18,16 @@ export default function Product({ data }) {
     )
 }
 
-export async function getStaticPaths() {
-
+const getProducts = async () => {
     const dbPath = path.join(process.cwd() , "data" , "db.json")
     const file = fs.readFileSync(dbPath)
     const DB = JSON.parse(file)
-    const {products} = DB
+    return DB.products
+}
+
+export async function getStaticPaths() {
+
+    const products = await getProducts()
 
     const paths = products.map(product => ({ params: { id: String(product.id) }}))
 
@@ -36,10 +40,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
 
-    const dbPath = path.join(process.cwd() , "data" , "db.json")
-    const file = fs.readFileSync(dbPath)
-    const DB = JSON.parse(file)
-    const {products} = DB
+    const products = await getProducts()
 
     const data = products.find(product => String(product.id) === context.params.id)
 

@@ -38,6 +38,6 @@ export async function getStaticProps() {
 
   return {
     props: { allProducts : products , likesProducts : products?.slice(4,8)},
-    revalidate : 300
+    revalidate : 30
   }
 }
