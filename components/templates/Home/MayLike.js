@@ -1,4 +1,4 @@
-import ProductCard from '@/components/modules/Card/ProductCard';
+import ProductSlid from '@/components/modules/Card/ProductSlid';
 import React from 'react'
 
 export default function MayLike({ likesProducts }) {
@@ -26,7 +26,7 @@ export default function MayLike({ likesProducts }) {
                         <div className="relative w-full pb-14">
                             <div className="flex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[400px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]" x-ref="carousel">
                                 {likesProducts.map(product => (
-                                    <ProductCard {...product} key={product.id}/>
+                                    <ProductSlid {...product} key={product.id}/>
                                 ))}
                             </div>
                             <div className="absolute left-0 right-0 bottom-0 flex items-center justify-center space-x-3">

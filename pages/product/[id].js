@@ -30,12 +30,10 @@ export async function getStaticPaths() {
     const products = await getProducts()
 
     const paths = products.map(product => ({ params: { id: String(product.id) }}))
-
     return {
         paths,
         fallback: true
     }
-
 }
 
 export async function getStaticProps(context) {
@@ -43,13 +41,11 @@ export async function getStaticProps(context) {
     const products = await getProducts()
 
     const data = products.find(product => String(product.id) === context.params.id)
-
     if(!data){
         return {
             redirect : {destination : "/"}
         }
     }
-
     return {
         props: { data  : data},
         revalidate : 300

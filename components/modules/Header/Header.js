@@ -8,8 +8,6 @@ export default function Header() {
 
     const router = useRouter()
 
-
-
     const searchHandler = event => {
         event.preventDefault()
         if (searchValue.trim()) {
@@ -24,6 +22,7 @@ export default function Header() {
 
     return (
         <header className="w-full bg-white">
+            {/* topbar */}
             <div className="hidden border-b border-[#e7e7e7] sm:block">
                 <div className="container mx-auto">
                     <div className="-mx-4 flex flex-wrap">
@@ -80,12 +79,14 @@ export default function Header() {
                     </div>
                 </div>
             </div>
+            {/* navbar */}
             <div className="border-b border-[#e7e7e7]">
                 <div className="container mx-auto">
                     <div className="relative -mx-4 flex items-center justify-center sm:justify-between">
                         <div className="w-60 max-w-full px-4 lg:w-48">
                             <a href="index.html" className="block w-full py-5 lg:py-3">
-                                <img src="/img/logo.svg" alt="logo" className="w-full" />
+                                {/* <img src="/img/logo.svg" alt="logo" className="w-full" /> */}
+                                BAHAMIN
                             </a>
                         </div>
                         <div className="flex w-full items-center justify-end px-4 lg:justify-between">
@@ -223,12 +224,12 @@ export default function Header() {
                                     </form>
                                 </div>
                                 <div>
-                                    <button className="relative flex h-10 w-10 items-center justify-center rounded-full border-[.5px] border-[#e7e7e7] bg-[#f4f7ff] text-slate-900">
+                                    <Link href="/acount" className="relative flex h-10 w-10 items-center justify-center rounded-full border-[.5px] border-[#e7e7e7] bg-[#f4f7ff] text-slate-900">
                                         <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M10.9998 12.5125C13.8186 12.5125 16.1217 10.2094 16.1217 7.39062C16.1217 4.57188 13.8186 2.23438 10.9998 2.23438C8.18105 2.23438 5.87793 4.5375 5.87793 7.35625C5.87793 10.175 8.18105 12.5125 10.9998 12.5125ZM10.9998 3.4375C13.1654 3.4375 14.9186 5.19062 14.9186 7.35625C14.9186 9.52187 13.1654 11.275 10.9998 11.275C8.83418 11.275 7.08105 9.52187 7.08105 7.35625C7.08105 5.225 8.83418 3.4375 10.9998 3.4375Z" fill="#212B36"></path>
                                             <path d="M21.3467 18.7002C18.4936 16.2596 14.8155 14.9189 10.9999 14.9189C7.18425 14.9189 3.50613 16.2596 0.653003 18.7002C0.378004 18.9064 0.343629 19.2846 0.584254 19.5596C0.790503 19.8002 1.16863 19.8346 1.44363 19.6283C4.0905 17.3939 7.49363 16.1564 11.0343 16.1564C14.5749 16.1564 17.978 17.3939 20.6249 19.6283C20.728 19.7314 20.8655 19.7658 21.003 19.7658C21.1749 19.7658 21.3467 19.6971 21.4499 19.5596C21.6561 19.2846 21.6217 18.9064 21.3467 18.7002Z" fill="#212B36"></path>
                                         </svg>
-                                    </button>
+                                    </Link>
                                 </div>
                                 <div className="relative z-20 group">
                                     <div className="flex max-w-[200px] justify-end">
