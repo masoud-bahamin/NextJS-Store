@@ -13,9 +13,11 @@ const schema = mongoose.Schema({
         type: [],
         default: []
     },
-    img : String
+    img: String
 
-})
+},
+    { timestamps: true }
+)
 
 const articleModel = mongoose.models.article || mongoose.model("article", schema)
 

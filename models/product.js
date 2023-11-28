@@ -23,7 +23,9 @@ const schema = mongoose.Schema({
     brand: String,
     category: String,
     thumbnail: String,
-})
+},
+    { timestamps: true }
+)
 
 const productModel = mongoose.models.Product || mongoose.model("Product", schema)
 
