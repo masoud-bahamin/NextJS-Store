@@ -198,6 +198,11 @@ export default function Header() {
                                                 </Link>
                                             </li>
                                             <li>
+                                                <Link href="/blog" className="flex justify-between py-2 text-base font-medium text-slate-900 hover:text-blue-600 lg:mx-5 lg:inline-flex lg:py-6 2xl:mx-6">
+                                                    Blog
+                                                </Link>
+                                            </li>
+                                            <li>
                                                 <Link href="/contact" className="flex justify-between py-2 text-base font-medium text-slate-900 hover:text-blue-600 lg:mx-5 lg:hidden lg:py-6 xl:inline-flex 2xl:mx-6">
                                                     Contact
                                                 </Link>
