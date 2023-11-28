@@ -1,22 +1,22 @@
-import fs from "fs"
-import path from "path"
+import productModel from "@/models/product"
+import connectToDb from "@/utils/db"
 
-const handler = (req, res) => {
-
-    const Path = path.join(process.cwd(), "data", "db.json")
-
-    const file = fs.readFileSync(Path)
-
-    const DB = JSON.parse(file)
-
+const handler = async (req, res) => {
+    connectToDb()
     if (req.method === "GET") {
-        const product = DB.products.find(product => product.id === +req.query.id)
+        try {
+            const {id} = req.query
+        const product = await productModel.findOne({ _id: id })
 
         if (product) {
             return res.status(200).json({ product, resulte: true })
         } else {
             return res.status(404).json({ message: "product not found", resulte: false })
         }
+        } catch (error) {
+            return res.status(404).json({ message: "catch error", resulte: false  , error})
+        }
+        
     }
 
 

@@ -1,10 +1,10 @@
 import BreadCrumb from '@/components/modules/BreadCrumb/BreadCrumb';
 import Comments from '@/components/modules/Comments/Comments';
 import ProductDisplay from '@/components/templates/Product/ProductDisplay';
+import productModel from '@/models/product';
+import connectToDb from '@/utils/db';
 import React from 'react'
 
-const fs = require("fs")
-const path = require("path")
 
 export default function Product({ data }) {
 
@@ -18,18 +18,12 @@ export default function Product({ data }) {
     )
 }
 
-const getProducts = async () => {
-    const dbPath = path.join(process.cwd() , "data" , "db.json")
-    const file = fs.readFileSync(dbPath)
-    const DB = JSON.parse(file)
-    return DB.products
-}
 
 export async function getStaticPaths() {
-
-    const products = await getProducts()
-
-    const paths = products.map(product => ({ params: { id: String(product.id) }}))
+    connectToDb()
+    const allproducts = await productModel.find({})
+    const products = JSON.parse(JSON.stringify(allproducts))
+    const paths = products.map(product => ({ params: { id: String(product._id) } }))
     return {
         paths,
         fallback: true
@@ -37,18 +31,18 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
+    connectToDb()
+    const { id } = context.params
+    const data = await productModel.findOne({ _id: id })
 
-    const products = await getProducts()
-
-    const data = products.find(product => String(product.id) === context.params.id)
-    if(!data){
-        return {
-            redirect : {destination : "/"}
-        }
-    }
+    // if (!data) {
+    //     return {
+    //         redirect: { destination: "/" }
+    //     }
+    // }
     return {
-        props: { data  : data},
-        revalidate : 300
+        props: { data: JSON.parse(JSON.stringify(data)) },
+        revalidate: 300
     }
 }
 

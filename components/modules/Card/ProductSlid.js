@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-export default function ProductCard({ title, thumbnail, price , id }) {
+export default function ProductCard({ title, thumbnail, price , _id }) {
     return (
         <div className="mx-auto h-full min-w-[300px] px-4 xs:min-w-[368px] sm:min-w-[510px] md:min-w-[340px] lg:min-w-[312px] xl:min-w-[282px] 2xl:min-w-[325px]">
             <div className="mb-10 overflow-hidden rounded-lg bg-white shadow-card">
@@ -13,7 +13,7 @@ export default function ProductCard({ title, thumbnail, price , id }) {
                 </div>
                 <div className="px-5 pt-6 pb-8 text-center">
                     <h3>
-                        <Link href={`/product/${id}`} className="text-lg font-semibold text-black hover:text-blue-600 xs:text-xl">
+                        <Link href={`/product/${_id}`} className="text-lg font-semibold text-black hover:text-blue-600 xs:text-xl">
                             {title}
                         </Link>
                     </h3>

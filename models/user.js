@@ -5,7 +5,7 @@ const schema = mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique : true
+        unique: true
     },
     password: {
         type: String,
@@ -21,12 +21,16 @@ const schema = mongoose.Schema({
         required: true,
         ref: "Product"
     },
+    role: {
+        type: "ADMIN" | "USER" | "MANAGER",
+        default: "USER"
+    },
     username: String,
     name: String,
     address: String,
 
 },
-    { timestamps: true }
+    { timestamps: true } 
 )
 
 const userModel = mongoose.models.User || mongoose.model("User", schema)
