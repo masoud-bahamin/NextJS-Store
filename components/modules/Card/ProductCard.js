@@ -1,17 +1,20 @@
 import Link from 'next/link'
 import React from 'react'
 
-export default function ProductCard({ id, title, price, thumbnail , viewBox}) {
+export default function ProductCard({ _id, title, price, thumbnail, viewBox }) {
     return (
         <>
             <div className={`${viewBox} h-full w-full px-4 md:w-1/2 mb-6`}>
-                <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                    <img
-                        src={thumbnail}
-                        alt="ui/ux review check"
-                        className='w-full h-60'
-                    />
-                    <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60" />
+                <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-clip-border text-white shadow-lg">
+                    <Link href={`/product/${_id}`}>
+                        <img
+                            src={thumbnail}
+                            alt="ui/ux review check"
+                            className='w-full h-60'
+                        />
+
+                        <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60" />
+                    </Link>
                     <button
                         className="!absolute top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle font-sans text-xs font-medium uppercase text-red-500 transition-all hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="button"
@@ -33,7 +36,7 @@ export default function ProductCard({ id, title, price, thumbnail , viewBox}) {
                 <div className="p-6">
                     <div className="mb-3 flex items-center justify-between">
                         <h5 className="block font-sans text-xl font-medium leading-snug tracking-normal text-blue-gray-900 antialiased">
-                          <Link href={`/product/${id}`}>{title}</Link> 
+                            <Link href={`/product/${_id}`}>{title}</Link>
                         </h5>
                         <p className="flex items-center gap-1.5 font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
                             <svg
@@ -57,8 +60,8 @@ export default function ProductCard({ id, title, price, thumbnail , viewBox}) {
                         surrounded by ancient trees, stone walls, and open meadows.
                     </p>
                     <h5 className="block font-sans text-xl font-medium leading-snug tracking-normal text-blue-gray-900 antialiased">
-                          $ {price}
-                        </h5>
+                        $ {price}
+                    </h5>
                     <div className="group mt-8 inline-flex flex-wrap items-center gap-3">
                         <span
                             data-tooltip-target="money"
@@ -113,7 +116,7 @@ export default function ProductCard({ id, title, price, thumbnail , viewBox}) {
                                 <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
                             </svg>
                         </span>
-                     
+
                         <span
                             data-tooltip-target="fire"
                             className="cursor-pointer rounded-full border border-blue-500/5 bg-blue-500/5 p-3 text-blue-500 transition-colors hover:border-blue-500/10 hover:bg-blue-500/10 hover:!opacity-100 group-hover:opacity-70"
@@ -146,7 +149,7 @@ export default function ProductCard({ id, title, price, thumbnail , viewBox}) {
                         type="button"
                         data-ripple-light="true"
                     >
-                        Add 
+                        Add
                     </button>
                 </div>
             </div>

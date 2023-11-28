@@ -323,7 +323,7 @@ export default function ProductsDisplay({ products }) {
                         <div className="w-full px-4 lg:w-8/12 xl:w-9/12">
                             <div className="-mx-4 flex flex-wrap">
                                 {productsShow?.map(product => (
-                                    <ProductCard viewBox={viewBox} key={product?.id} {...product} />
+                                    <ProductCard viewBox={viewBox} key={product?._id} {...product} />
                                 ))}
                                 {/* pagination */}
                                 <div className="w-full px-4 text-center">

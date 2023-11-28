@@ -7,7 +7,6 @@ export default async function handler(req, res) {
         try {
             const { id } = req.query
             const userInfo = await userModel.findOne({ _id: id }).populate("fav").populate("basket").lean()
-            console.log("mas user" , userInfo);
 
             if (userInfo) {
                 return res

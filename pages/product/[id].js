@@ -8,12 +8,11 @@ import React from 'react'
 
 export default function Product({ data }) {
 
-    console.log(data);
     return (
         <div>
             <BreadCrumb title={"Product Details"} />
             <ProductDisplay {...data} />
-            <Comments />
+            <Comments _id={data._id} comments={data.comments}/>
         </div>
     )
 }
@@ -33,13 +32,13 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
     connectToDb()
     const { id } = context.params
-    const data = await productModel.findOne({ _id: id })
+    const data = await productModel.findOne({ _id: id }).populate("comments").lean()
 
-    // if (!data) {
-    //     return {
-    //         redirect: { destination: "/" }
-    //     }
-    // }
+    if (!data) {
+        return {
+            redirect: { destination: "/" }
+        }
+    }
     return {
         props: { data: JSON.parse(JSON.stringify(data)) },
         revalidate: 300

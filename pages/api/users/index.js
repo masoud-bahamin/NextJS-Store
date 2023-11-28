@@ -1,8 +1,5 @@
 import userModel from "@/models/user"
 import connectToDb from "@/utils/db"
-import fs from "fs"
-import path from "path"
-
 
 export default async function Handler(req, res) {
     connectToDb()

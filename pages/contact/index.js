@@ -49,7 +49,7 @@ export default function index() {
                                         <div className="w-full px-4 md:w-1/2">
                                             <div className="mb-7">
                                                 <label
-                                                    htmlhtmlFor="firstName"
+                                                    htmlFor="firstName"
                                                     className="mb-3 block text-base font-medium text-dark"
                                                 >
                                                     First Name
@@ -66,7 +66,7 @@ export default function index() {
                                         <div className="w-full px-4 md:w-1/2">
                                             <div className="mb-7">
                                                 <label
-                                                    htmlhtmlFor="lastName"
+                                                    htmlFor="lastName"
                                                     className="mb-3 block text-base font-medium text-dark"
                                                 >
                                                     Last Name
@@ -83,7 +83,7 @@ export default function index() {
                                         <div className="w-full px-4 md:w-1/2">
                                             <div className="mb-7">
                                                 <label
-                                                    htmlhtmlFor="email"
+                                                    htmlFor="email"
                                                     className="mb-3 block text-base font-medium text-dark"
                                                 >
                                                     Business Email
@@ -100,7 +100,7 @@ export default function index() {
                                         <div className="w-full px-4 md:w-1/2">
                                             <div className="mb-7">
                                                 <label
-                                                    htmlhtmlFor="number"
+                                                    htmlFor="number"
                                                     className="mb-3 block text-base font-medium text-dark"
                                                 >
                                                     Phone number
@@ -117,7 +117,7 @@ export default function index() {
                                         <div className="w-full px-4">
                                             <div className="mb-7">
                                                 <label
-                                                    htmlhtmlFor="message"
+                                                    htmlFor="message"
                                                     className="mb-3 block text-base font-medium text-dark"
                                                 >
                                                     What are you looking for?

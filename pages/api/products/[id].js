@@ -6,7 +6,7 @@ const handler = async (req, res) => {
     if (req.method === "GET") {
         try {
             const {id} = req.query
-        const product = await productModel.findOne({ _id: id })
+        const product = await productModel.findOne({ _id: id }).populate("comments").lean()
 
         if (product) {
             return res.status(200).json({ product, resulte: true })

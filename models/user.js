@@ -22,7 +22,8 @@ const schema = mongoose.Schema({
         ref: "Product"
     },
     role: {
-        type: "ADMIN" | "USER" | "MANAGER",
+        type : String,
+        enum: ["ADMIN" , "USER" , "MANAGER"],
         default: "USER"
     },
     username: String,

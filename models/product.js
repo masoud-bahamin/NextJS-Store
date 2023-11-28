@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const Comment = require("@/models/comment")
 
 const schema = mongoose.Schema({
     title: {
@@ -26,7 +27,11 @@ const schema = mongoose.Schema({
 },
     { timestamps: true }
 )
-
+schema.virtual("comments", {
+    localField: "_id",
+    foreignField: "productId",
+    ref : "Comment"
+})
 const productModel = mongoose.models.Product || mongoose.model("Product", schema)
 
 export default productModel
