@@ -23,9 +23,8 @@ export default async function handler(req, res) {
 
         }
         case "POST": {
+            const { title, price, description, images, discountPercentage, rating, stock, brand, category, thumbnail } = req.body
             try {
-                const { title, price, description, images, discountPercentage, rating, stock, brand, category, thumbnail } = req.body
-                console.log("massss" ,title, price, description);
                 const product = await productModel.create({ title, price, description, images, discountPercentage, rating, stock, brand, category, thumbnail })
                 if (product) {
                     return res.status(201).json({ message: "the product created successfully", resulte: true, product })
@@ -36,7 +35,7 @@ export default async function handler(req, res) {
                 return res.status(400).json({ message: "error catch", resulte: false, error })
             }
 
-
+            break
         }
         case "DELETE": {
             return res.json({ message: "the product removed successfully" })

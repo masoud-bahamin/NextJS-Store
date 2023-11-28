@@ -1,34 +1,23 @@
-import fs from "fs"
-import path from "path"
+import userModel from "@/models/user"
+import connectToDb from "@/utils/db"
 
 
-export default function handler(req, res) {
-
-
-
-
+export default async function handler(req, res) {
+    connectToDb()
     switch (req.method) {
         case "POST": {
+            try {
+                const { email, password } = req.body
+                const user = await userModel.create({ email, password })
+                if (user) {
+                    return res.status(200).json({ user, resulte: true, token: user._id })
+                } else {
+                    return res.status(404).json({ resulte: false, message: "information error" })
+                }
 
-            const Path = path.join(process.cwd(), "data", "db.json")
-            const file = fs.readFileSync(Path)
-            const DB = JSON.parse(file)
-
-            const user = req.body
-            DB.users.push(user)
-            const err = fs.writeFileSync(Path, JSON.stringify(DB))
-            if (err) {
-                return res
-                    .status(500)
-                    .json({ resulte: false, message: "server error" })
-            } else {
-                return res.status(200).json({ user, resulte: true, token: user.id })
+            } catch (error) {
+                return res.status(400).json({ error, resulte: false, message: "catch error" })
             }
         }
-            break;
-
-        default:
-            break;
     }
-
 }

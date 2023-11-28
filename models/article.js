@@ -8,7 +8,12 @@ const schema = mongoose.Schema({
     body: {
         type: String,
         required: true
-    }
+    },
+    images: {
+        type: [],
+        default: []
+    },
+    img : String
 
 })
 

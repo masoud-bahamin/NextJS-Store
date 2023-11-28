@@ -6,21 +6,19 @@ import MayLike from '@/components/templates/Home/MayLike'
 import NewProducts from '@/components/templates/Home/NewProducts'
 import Categories from '@/components/templates/Home/Categories'
 import RecentNews from '@/components/templates/Home/RecentNews'
+import connectToDb from '@/utils/db'
+import productModel from '@/models/product'
 
-const fs = require("fs")
-const path = require("path")
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({allProducts , likesProducts}) {
-
-  console.log(allProducts);
+export default function Home({ allProducts, likesProducts }) {
 
   return (
     <div className=''>
       <Hero />
       <Collections />
-      <MayLike likesProducts={likesProducts}/>
+      <MayLike likesProducts={likesProducts} />
       <NewProducts />
       <Categories />
       <RecentNews />
@@ -29,15 +27,16 @@ export default function Home({allProducts , likesProducts}) {
 }
 
 export async function getStaticProps() {
+  connectToDb()
 
-  const dbPath = path.join(process.cwd() , "data" , "db.json")
-  const file = fs.readFileSync(dbPath)
-  const DB = JSON.parse(file)
-  const {products} = DB
+  const products = await productModel.find({})
 
 
   return {
-    props: { allProducts : products , likesProducts : products?.slice(4,8)},
-    revalidate : 30
+    props: {
+      allProducts: JSON.parse(JSON.stringify(products)),
+      likesProducts: JSON.parse(JSON.stringify(products.slice(4, 8)))
+    },
+    revalidate: 30
   }
 }

@@ -25,6 +25,6 @@ const schema = mongoose.Schema({
     thumbnail: String,
 })
 
-const productModel = mongoose.model.Product || mongoose.model("Product", schema)
+const productModel = mongoose.models.Product || mongoose.model("Product", schema)
 
 export default productModel

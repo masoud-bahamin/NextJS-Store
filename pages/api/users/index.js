@@ -1,50 +1,26 @@
+import userModel from "@/models/user"
+import connectToDb from "@/utils/db"
 import fs from "fs"
 import path from "path"
 
 
-export default function Handler(req, res) {
-
-    const Path = path.join(process.cwd(), "data", "db.json")
-    const file = fs.readFileSync(Path)
-    const {users} = JSON.parse(file)
-
+export default async function Handler(req, res) {
+    connectToDb()
     switch (req.method) {
-        case "POST": {
-            if (req.body) {
-                const { email, password } = req.body;
-                const user = users.find(user => user.email === email)
-                if (user) {
-                    if (user.password === password) {
-                        return res.status(200).json({
-                            user,
-                            resulte: true,
-                            token: user.id
-                        })
-                    } else {
-                        return res.status(400).json({
-                            message: "password is wrong",
-                            resulte: false
-                        })
-                    }
-                } else {
-                    return res.status(400).json({
-                        message: "email not found",
-                        resulte: false
-                    })
-                }
-            }
-        }
-            break;
-
         case "GET": {
-            return res.status(200).json(users)
+            try {
+                const users = await userModel.find({})
+                if (users) {
+                    return res.status(200).json({ users, resulte: true })
+                } else {
+                    return res.status(404).json({ message: "information wrong", resulte: false })
+                }
+
+            } catch (error) {
+                return res.status(400).json({ error, message: "catch eror", resulte: false })
+            }
+
         }
-            break;
-
-        default:
-            break;
     }
-
-
 
 }
