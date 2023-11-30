@@ -1,5 +1,6 @@
 import productModel from "@/models/product"
 import connectToDb from "@/utils/db"
+import checkProduct from "@/validations/serverValidation/Product"
 
 export default async function handler(req, res) {
     connectToDb()
@@ -23,6 +24,11 @@ export default async function handler(req, res) {
 
         }
         case "POST": {
+            const validation = checkProduct(req.body)
+            if (validation !== true) {
+                return res.status(422).json(validation)
+            }
+
             const { title, price, description, images, discountPercentage, rating, stock, brand, category, thumbnail } = req.body
             try {
                 const product = await productModel.create({ title, price, description, images, discountPercentage, rating, stock, brand, category, thumbnail })

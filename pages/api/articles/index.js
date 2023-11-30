@@ -1,5 +1,6 @@
 import articleModel from "@/models/article"
 import connectToDb from "@/utils/db"
+import checkArticle from "@/validations/serverValidation/article"
 
 export default async function (req, res) {
     const { method, query } = req
@@ -18,9 +19,13 @@ export default async function (req, res) {
     }
     else if (method === "POST") {
         connectToDb()
-        const { title, body } = req.body
+        const validation = checkArticle(req.body)
+        if (validation !== true) {
+            return res.status(422).json(validation)
+        }
+        const { title, body , images } = req.body
         try {
-            const article = await articleModel.create({ title, body })
+            const article = await articleModel.create({ title, body , images})
             if (article) {
                 return res.status(201).json({ resulte: true, article })
             } else {
