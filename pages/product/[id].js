@@ -5,8 +5,7 @@ import productModel from '@/models/product';
 import connectToDb from '@/utils/db';
 import React from 'react'
 
-
-export default function Product({ data }) {
+export default function Product({data}) {
 
     return (
         <div>
@@ -49,6 +48,6 @@ export async function getServerSideProps(context) {
     connectToDb()
 
     const product = await productModel.findOne({ _id: context.params.id })
-    
+
     return { props: { data: JSON.parse(JSON.stringify(product)) } }
 }
