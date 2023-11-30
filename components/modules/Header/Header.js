@@ -24,8 +24,8 @@ export default function Header() {
 
     }, [])
 
-    // const [userInfo] = useUserInfo()
-    // console.log(userInfo);
+    const [userInfo] = useUserInfo()
+    console.log(userInfo);
 
     return (
         <header className="w-full bg-white">
@@ -236,7 +236,7 @@ export default function Header() {
                                     </form>
                                 </div>
                                 <div>
-                                    {/* {userInfo ? (
+                                    {userInfo ? (
                                         <Link href="/acount" className="relative flex h-10 w-10 items-center justify-center rounded-full border-[.5px] border-[#e7e7e7] bg-[#f4f7ff] text-slate-900">
                                             <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M10.9998 12.5125C13.8186 12.5125 16.1217 10.2094 16.1217 7.39062C16.1217 4.57188 13.8186 2.23438 10.9998 2.23438C8.18105 2.23438 5.87793 4.5375 5.87793 7.35625C5.87793 10.175 8.18105 12.5125 10.9998 12.5125ZM10.9998 3.4375C13.1654 3.4375 14.9186 5.19062 14.9186 7.35625C14.9186 9.52187 13.1654 11.275 10.9998 11.275C8.83418 11.275 7.08105 9.52187 7.08105 7.35625C7.08105 5.225 8.83418 3.4375 10.9998 3.4375Z" fill="#212B36"></path>
@@ -248,7 +248,7 @@ export default function Header() {
                                         <Link href="/signup" className="relative flex h-10 w-10 items-center justify-center rounded-full border-[.5px] border-[#e7e7e7] bg-[#f4f7ff] text-slate-900">
                                             Sign Up
                                         </Link>
-                                    )} */}
+                                    )}
 
                                 </div>
                                 <div className="relative z-20 group">

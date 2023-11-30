@@ -7,7 +7,7 @@ export default function article({ data }) {
         <div className="container my-24 mx-auto md:px-6">
             <section className="mb-32">
                 <img
-                    src={data.images[0]  || "https://mdbcdn.b-cdn.net/img/new/slides/198.jpg"}
+                    src={data?.images[0]  || "https://mdbcdn.b-cdn.net/img/new/slides/198.jpg"}
                     className="mb-6 w-full rounded-lg shadow-lg dark:shadow-black/20"
                     alt="image"
                 />
@@ -29,9 +29,9 @@ export default function article({ data }) {
                     </div>
                 </div>
                 <h1 className="mb-6 text-3xl font-bold">
-                    {data.title}
+                    {data?.title}
                 </h1>
-                <p>{data.body} <br /><br />
+                <p>{data?.body} <br /><br />
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi harum
                     tempore cupiditate asperiores provident, itaque, quo ex iusto rerum
                     voluptatum delectus corporis quisquam maxime a ipsam nisi sapiente qui
@@ -51,7 +51,8 @@ export default function article({ data }) {
 export async function getStaticPaths() {
     connectToDb()
     const articles = await articleModel.find({})
-    const paths = articles.map(article => ({ params: { id: String(article._id) } }))
+    const data = await JSON.parse(JSON.stringify(articles))
+    const paths = data.map(article => ({ params: { id: article._id } }))
     return {
         paths,
         fallback: true
@@ -59,12 +60,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-    const { id } = context.params;
     connectToDb()
-    const data = await articleModel.findOne({ _id: id })
-
+    const { id } = context.params;
+    const article = await articleModel.findOne({ _id: id })
+    const data = await JSON.parse(JSON.stringify(article))
     return {
-        props: { data: JSON.parse(JSON.stringify(data)) },
+        props: { data },
         revalidate : 60 * 60 * 24
     }
 }
