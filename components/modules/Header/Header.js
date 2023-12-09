@@ -93,7 +93,7 @@ export default function Header() {
                         <div className="w-60 max-w-full px-4 lg:w-48">
                             <a href="index.html" className="block w-full py-5 lg:py-3">
                                 {/* <img src="/img/logo.svg" alt="logo" className="w-full" /> */}
-                                BAHAMIN
+                                BAHAMINO
                             </a>
                         </div>
                         <div className="flex w-full items-center justify-end px-4 lg:justify-between">
