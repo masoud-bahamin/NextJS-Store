@@ -1,8 +1,8 @@
 <img src="https://github.com/masoud-bahamin/NextJS-Store/blob/main/public/img/store.png?raw=true" style="width : 700px"/>
 
-online shop with Next.js 13 (Page Router) and Tailwind css
+online shop with Next.js 13 (Page Router) and Tailwind css.
 
-you can see that here : https://bahamino.vercel.app/
+you can see this page online here : https://bahamino.vercel.app/
 
 
 
