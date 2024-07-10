@@ -121,10 +121,10 @@ export default function Hero() {
               <p className="font-semibold mt-1">Tamara Jules</p>
             </div>
           </div>
-          <div className="w-[480px] md:w-[750px] xl:w-[800px] absolute bottom-0 -right-20 sm:-right-32 lg:right-32 xl:right-64">
+          <div className="w-[480px] md:w-[750px] lg:w-[900px] xl:w-[1000px] absolute bottom-0 -right-20 sm:-right-32 lg:right-0 xl:right-20 2xl:right-[12vw]">
             <Image
               width={1500}
-              height={700}
+              height={900}
               src="/img/bg-w.png"
               alt="hero"
               className="w-auto h-auto "
