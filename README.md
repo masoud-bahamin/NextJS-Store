@@ -1,3 +1,15 @@
+<img src="https://github.com/masoud-bahamin/NextJS-Store/blob/main/public/img/store.png?raw=true" style="width : 700px"/>
+
+online shop with Next.js 13 (Page Router) and Tailwind css.
+
+you can see this page online here : https://bahamino.vercel.app/
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
