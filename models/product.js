@@ -1,22 +1,23 @@
-const mongoose = require("mongoose")
-const Comment = require("@/models/comment")
+const mongoose = require("mongoose");
+const Comment = require("@/models/comment");
 
-const schema = mongoose.Schema({
+const schema = mongoose.Schema(
+  {
     title: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     description: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     price: {
-        type: Number,
-        required: true
+      type: Number,
+      required: true,
     },
     images: {
-        type: [],
-        default: []
+      type: [],
+      default: [],
     },
     discountPercentage: Number,
     rating: Number,
@@ -24,14 +25,15 @@ const schema = mongoose.Schema({
     brand: String,
     category: String,
     thumbnail: String,
-},
-    { timestamps: true }
-)
+  },
+  { timestamps: true }
+);
 schema.virtual("comments", {
-    localField: "_id",
-    foreignField: "productId",
-    ref : "Comment"
-})
-const productModel = mongoose.models.Product || mongoose.model("Product", schema)
+  localField: "_id",
+  foreignField: "productId",
+  ref: "Comment",
+});
+const productModel =
+  mongoose.models.Product || mongoose.model("Product", schema);
 
-export default productModel
+export default productModel;

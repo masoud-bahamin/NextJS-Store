@@ -1,13 +1,13 @@
-const mongpoose = require("mongoose")
+const mongpoose = require("mongoose");
 
 const connectToDb = () => {
-    if(mongpoose.connections[0].readyState){
-        console.log("masoud connect bodam :)");
-        return false
-    } else {
-        mongpoose.connect("mongodb+srv://bahaminwp:bahamin1364@bahamincluster.zht7zml.mongodb.net/firstStore")
-        console.log("masoud connect shodam :)");
-    }
-}
+  if (mongpoose.connections[0].readyState) {
+    return false;
+  } else {
+    mongpoose.connect(
+      "mongodb+srv://bahaminwp:bahamin1364@bahamincluster.zht7zml.mongodb.net/firstStore"
+    );
+  }
+};
 
-export default connectToDb
+export default connectToDb;
