@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-body">
-      <div className="border-y border-[#e7e7e7] pt-[60px] md:pt-0">
+    <footer className=" text-body">
+      <div className="bg-back border-y border-[#e7e7e7] pt-[60px] md:pt-0">
         <div className="container mx-auto">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 md:w-1/3">

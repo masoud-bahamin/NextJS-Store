@@ -3,7 +3,7 @@ import React from "react";
 
 export default function index({ data }) {
   return (
-    <div>
+    <div className="bg-back">
       <section className="pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] dark:bg-dark">
         <div className="container mx-auto">
           <div className="-mx-4 flex flex-wrap">

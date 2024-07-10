@@ -53,7 +53,7 @@ export default function ProductsDisplay({ products }) {
 
   return (
     <>
-      <section className="bg-[#fafafa] pt-24 pb-[90px]">
+      <section className="bg-back pt-24 pb-[90px]">
         <div className="container mx-auto">
           <div className="mb-10 rounded-lg border border-[#e7e7e7] bg-white p-5">
             <DisplayType

@@ -28,7 +28,7 @@ export default function SignUp() {
   };
 
   return (
-    <section className="h-screen">
+    <section className="h-screen bg-back">
       <div className="h-full">
         {/* <!-- Left column container with background--> */}
         <div className="container mx-auto flex h-full flex-wrap items-center justify-center lg:justify-between">

@@ -7,7 +7,7 @@ import React from "react";
 
 export default function Product({ data }) {
   return (
-    <div>
+    <div className="bg-back">
       <BreadCrumb title={"Product Details"} />
       <ProductDisplay {...data} />
       <Comments _id={data._id} comments={data.comments} />

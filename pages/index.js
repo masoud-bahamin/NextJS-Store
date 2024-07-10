@@ -17,7 +17,7 @@ const poppins = Poppins({
 
 export default function Home({ allProducts, likesProducts }) {
   return (
-    <div className={`text-dark ${poppins.className}`}>
+    <div className={`text-dark bg-back   ${poppins.className}`}>
       <Hero />
       <Collections />
       <MayLike likesProducts={likesProducts} />

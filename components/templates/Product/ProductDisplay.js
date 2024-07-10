@@ -9,7 +9,7 @@ export default function ProductDisplay({
   rating,
 }) {
   return (
-    <section className="bg-[#fafafa] pt-24 lg:pb-[90px]">
+    <section className="bg-back pt-24 lg:pb-[90px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4 lg:w-1/2 xl:w-7/12">

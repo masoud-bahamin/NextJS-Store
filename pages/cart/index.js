@@ -6,7 +6,7 @@ export default function index() {
     <div>
       <BreadCrumb title={"Cart"} />
 
-      <section className="bg-[#fafafa] py-24">
+      <section className="bg-back py-24">
         <div className="container mx-auto">
           <h2 className="mb-12 flex items-center text-2xl font-semibold text-black sm:text-3xl md:text-4xl">
             Shopping cart
