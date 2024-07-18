@@ -4,7 +4,7 @@ import React from "react";
 export default function Hero() {
   return (
     <div className="bg-[url(/img/bg-b.png)] relative bg-right md:bg-center lg:bg-right dark:bg-slate-900 overflow-hidden text-body -mt-32">
-      <div className="container m-auto h-screen overflow-x-hidden">
+      <div className="container m-auto pt-40 pb-80 lg:pb-40  overflow-x-hidden">
         <div className="h-full flex flex-wrap lg:flex-nowrap items-center">
           <div className="w-full lg:w-5/12">
             <div className="hero-content">
@@ -15,7 +15,7 @@ export default function Hero() {
                 We provide you various treatments from head to toe using the
                 best product, advanced technology, and affordable price
               </p>
-              <ul className="flex flex-wrap items-center">
+              <ul className="flex flex-wrap gap-4 items-center">
                 <li>
                   <a
                     href="#"
@@ -27,7 +27,7 @@ export default function Hero() {
                 <li>
                   <a
                     href="#"
-                    className="inline-flex items-center justify-center px-5 py-3 text-center text-base font-medium text-[#464646] hover:text-primary-300 dark:text-white"
+                    className="inline-flex items-center justify-center py-3 text-center text-base font-medium text-[#464646] hover:text-primary-300 dark:text-white"
                   >
                     <span className="mr-2">
                       <svg
@@ -101,7 +101,7 @@ export default function Hero() {
               and health of my skin
               <p className="font-semibold mt-1">Sophia Princeton</p>
             </div>
-            <div className="w-[355px] backdrop-blur-md -mb-[50vh] xl:-mb-[40vh] mr-48 p-6 rounded bg-[rgba(256,256,256,.5)] z-10 text-sm font-medium text-dark">
+            <div className="w-[355px] backdrop-blur-md -mb-[350px] xl:-mb-[250px] mr-48 p-6 rounded bg-[rgba(256,256,256,.5)] z-10 text-sm font-medium text-dark">
               <svg
                 width="24"
                 height="16"
